@@ -45,6 +45,11 @@ void subMain(spiInfo info)
 	#endif
 }
 
+
+/**
+ * Configure the slave to run at 4Mhz for quick read write operation
+ *
+ */
 void configureOscillator(void)
 {
 	OSCCONbits.IRCF1 = 1;
@@ -54,6 +59,11 @@ void configureOscillator(void)
 
 }
 
+/**
+ * Interpret the command receive from master to react according
+ *
+ * Input :	info	contains the address,data,ID
+ */
 void commandInterpreter(spiInfo *info)
 {
 		uint32 address ;
@@ -83,7 +93,7 @@ void commandInterpreter(spiInfo *info)
 			send_1byte(info->ID); //Send device ID to master
 		}
 
-		else if (info->command == CONFIG) //Configuration Regsiter Write Operation
+		else if (info->command == CONFIG) //Configuration Register Write Operation
 		{
 			spiReceiveAddress(info->address);
 			address = (uint32)info->address[2] << 16 |(uint16) info->address[1] << 8 | info->address[0] ;

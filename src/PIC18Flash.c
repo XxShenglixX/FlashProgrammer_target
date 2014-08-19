@@ -110,6 +110,11 @@ void writeConfiguration(uint32 addressToWrite, uint8 data)
 	EECON1bits.WREN = 0 ; // Disable write 
 }
 
+/**
+ * Read device ID of PIC
+ *
+ *  Input : data is the pointer to where the ID is read and stored
+ **/
 void readDevID(uint8 *data)
 {
 	TBLPTR = 0x3FFFFF ;

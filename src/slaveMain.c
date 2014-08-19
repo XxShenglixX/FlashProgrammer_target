@@ -5,7 +5,8 @@
 #include "PIC18Flash.h"
 #include "SegmentHandler.h"
 #include "spiInfo.h"
-#define JumpPin PORTCbits.RC0 
+#define runTargetPin PORTCbits.RC0 
+#define configureTarget() LATCbits.LATC0 = 1 
 #define Write 0x11
 #define Read 0x22
 #define CONFIG 0x33
@@ -31,12 +32,11 @@ void main()
 #pragma code subMain = 0x7500
 void subMain(spiInfo info)
 {
-	LATCbits.LATC0 = 1 ;
-	
+	configureTarget();
 	configureOscillator();
 	
 
-	while(JumpPin != 1)
+	while(runTargetPin  != 1)
 	{
 		commandInterpreter(&info);
 	}

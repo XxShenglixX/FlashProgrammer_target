@@ -21,14 +21,14 @@ extern near char __FPFLAGS;
 
 #define RND 6
 
-#pragma code _entry_scn=0x00
+#pragma code _entry_scn=0x7000
 void
 _entry (void)
 {
 _asm goto _startup _endasm
 
 }
-#pragma code _startup_scn= 0x7000
+
 void
 _startup (void)
 {

@@ -1,4 +1,4 @@
-#include <P18F4520.h>
+#include "18c.h"
 #include "PIC18Flash.h"
 #include "Utils.h"
 

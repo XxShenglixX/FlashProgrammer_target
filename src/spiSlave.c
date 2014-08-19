@@ -1,4 +1,4 @@
-#include <P18F4520.h>
+#include "18c.h"
 #include "spiSlave.h"
 #include <spi.h>
 #include <delays.h>

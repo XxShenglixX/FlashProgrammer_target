@@ -1,4 +1,4 @@
-#include <P18F4520.h>
+#include "18c.h"
 #include "slaveMain.h"
 #include "Utils.h"
 #include "spiSlave.h"
